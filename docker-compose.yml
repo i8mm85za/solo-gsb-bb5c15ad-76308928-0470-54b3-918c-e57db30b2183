@@ -1,0 +1,15 @@
+services:
+  api:
+    build: .
+    image: beat-alignment-api:latest
+    container_name: beat-alignment-api
+    ports:
+      - "8000:8000"
+    environment:
+      ALIGN_DB_PATH: /data/alignments.db
+    volumes:
+      - align-data:/data
+    restart: unless-stopped
+
+volumes:
+  align-data:
